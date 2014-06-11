@@ -61,10 +61,10 @@
                 <div class="col-lg-12">
                     <h1>CP TITAN</h1>
                     <div class="page-scroll">
-                        <a class="btn btn-default" href="#login">Login as Teacher</a>
+                        <a class="btn btn-default" href="#login">Login</a>
                     </div>
                     <br>
-                    <p>CloudPlus Titan - a few words about the project goes here.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
                 </div>
             </div>
         </div>
@@ -106,6 +106,8 @@
                 <div class="col-lg-12">
                     <h1>About Us</h1>
                 </div>
+                <br>
+                <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
             </div>
         </div>
     </section>
@@ -116,6 +118,8 @@
                 <div class="col-lg-12">
                     <h1>Contact Us</h1>
                 </div>
+                <br>
+                <p>Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
             </div>
         </div>
     </section>
