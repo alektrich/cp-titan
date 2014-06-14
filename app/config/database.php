@@ -55,9 +55,11 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'forge',
-			'username'  => 'forge',
+			'database'  => 'cp-titan',
+			'username'  => 'root',
 			'password'  => '',
+			/*'username'  => 'your_username',
+			'password'  => 'your_password',*/
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
