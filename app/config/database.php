@@ -56,10 +56,9 @@ return array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
 			'database'  => 'cp-titan',
-			'username'  => 'root',
-			'password'  => '',
-			/*'username'  => 'your_username',
-			'password'  => 'your_password',*/
+			//enter credentials here
+			'username'  => 'root',//DB username
+			'password'  => '',//DB password
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
