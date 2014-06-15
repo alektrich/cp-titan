@@ -62,3 +62,7 @@ of those sections to manage the look and feel of the site. */
     text-align: center;
     margin-bottom: 15px;
 }
+
+div#accordion {
+    text-align: left;
+}

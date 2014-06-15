@@ -10,10 +10,12 @@
     <title>CP Titan</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <!-- <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"> -->
+    {{HTML::style('css/bootstrap.min.css')}}
+    {{HTML::style('css/scrolling-nav.css')}}
 
     <!-- Custom CSS -->
-    <link href="css/scrolling-nav.css" rel="stylesheet" type="text/css">
+    <!-- <link href="css/scrolling-nav.css" rel="stylesheet" type="text/css"> -->
 
 </head>
 
@@ -39,9 +41,19 @@
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
+
+                    @if(Auth::check())
+                    <li class="page-scroll">
+                        <a href="#login">Homeworks</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="{{URL::to('logout')}}">Logout</a>
+                    </li>
+                    @else
                     <li class="page-scroll">
                         <a href="#login">Login</a>
-                    </li>
+                    </li>    
+                    @endif
                     <li class="page-scroll">
                         <a href="#about">About</a>
                     </li>
@@ -60,6 +72,16 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1>CP TITAN</h1>
+                    @if(Session::has('message'))
+                        {{ Session::get('message') }}
+                    @endif
+                    @if($errors->has())
+                      <div class="alert alert-danger">  
+                      @foreach ($errors->all() as $error)
+                        <p>{{ $error }}</p>
+                      @endforeach
+                      </div>
+                    @endif
                     <div class="page-scroll">
                         <a class="btn btn-default" href="#login">Login</a>
                     </div>
@@ -70,6 +92,7 @@
         </div>
     </section>
 
+    @if(!Auth::check())
     <section id="login" class="login-section">
         <div class="container">
             <div class="row login">
@@ -78,7 +101,7 @@
                 </div>
 
             </div>
-            {{ Form::open(array('url'=>'dashboard', 'method' => 'POST', 'class'=>'form-horizontal')) }}
+            {{ Form::open(array('url'=>'user/login', 'method' => 'POST', 'class'=>'form-horizontal')) }}
                 <div class="form-group">
                 {{ Form::label('email', 'Email', array('class' => 'control-label col-sm-4')) }}
                     <div class="col-sm-4">
@@ -99,7 +122,22 @@
                 </div>
             {{ Form::close() }}
         </div>
+    </section>    
+    @else
+    <section id="login" class="intro-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1>You are logged in</h1>
+                    <div class="page-scroll">
+                        <a class="btn btn-default" href="{{URL::to('homeworks')}}">Go to Homeworks!</a>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
     </section>
+    @endif
 
     <section id="about" class="about-section">
         <div class="container">
@@ -131,7 +169,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title" id="registerLabel">Modal title</h4>
+            <h4 class="modal-title" id="registerLabel">Please Register</h4>
           </div>
           <div class="modal-body">
             {{ Form::open(array('url'=>'user/register', 'method' => 'POST', 'class'=>'form-horizontal')) }}
@@ -178,12 +216,12 @@
     <!-- /Register Modal -->
 
     <!-- Core JavaScript Files -->
-    <script src="js/jquery-1.10.2.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.easing.min.js"></script>
+    {{HTML::script('js/jquery-1.10.2.js')}}
+    {{HTML::script('js/bootstrap.min.js')}}
+    {{HTML::script('js/jquery.easing.min.js')}}
 
     <!-- Custom Theme JavaScript -->
-    <script src="js/scrolling-nav.js"></script>
+    {{HTML::script('js/scrolling-nav.js')}}
 
 </body>
 

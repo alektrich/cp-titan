@@ -45,12 +45,11 @@ class UsersController extends BaseController {
 		    $user->password = Hash::make(Input::get('password'));
 		    $user->save();
 
-		    $data['successMessage'] = "You are registered successfully!";
-	        return Redirect::to('/', $data);
+		    return Redirect::to('/')->with('message', '<p class="alert alert-success">Thanks for registering!</p>');
 
 	    } else {
 	        // validation has failed, display error messages  
-	        return Redirect::back()->with('message', 'The following errors occurred')->withErrors($validator)->withInput(); 
+	        return Redirect::to('/')->with('message', '<p class="alert alert-danger">Registration failed</p>')->withInput()->withErrors($validator); 
 	    }
 
 
@@ -65,20 +64,22 @@ class UsersController extends BaseController {
 
 		if (Auth::attempt(array('email'=>$email, 'password'=>$password))) {
 
-			$data['firstname'] = User::where('email', $email)->pluck('first_name');
-
-			// dd($this->email);
-
-		    return View::make('lifegraphic', $data);
+		    return Redirect::to('homeworks');
 
 		} else {
 
-		    return Redirect::to('users/login')
-		        ->with('message', '<p class="alert alert-error">Your username/password combination was incorrect</p>')
+		    return Redirect::to('/')
+		        ->with('message', '<p class="alert alert-danger">Your username/password combination was incorrect</p>')
 		        ->withInput();
 
 		}
 
+	}
+
+	public function getLogout() 
+	{
+		Auth::logout();
+		return Redirect::to('/');
 	}
 
 }

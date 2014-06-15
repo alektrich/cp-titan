@@ -15,3 +15,12 @@ Route::get('/', function()
 {
 	return View::make('home');
 });
+
+Route::controller('users', 'UsersController');
+Route::post('user/register', 'UsersController@postRegister');
+Route::post('user/login', 'UsersController@postLogin');
+Route::get('logout', 'UsersController@getLogout');
+
+Route::controller('homeworks', 'HomeworksController');
+Route::get('homeworks', 'HomeworksController@getHomework');
+Route::post('homeworks', 'HomeworksController@postHomework');
