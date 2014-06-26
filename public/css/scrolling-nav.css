@@ -1,6 +1,8 @@
 body {
     width: 100%;
     height: 100%;
+    background-image: url('../images/cptitanwall.jpg') !important;
+    background-color: #cccccc;
 }
 
 html {
@@ -30,32 +32,33 @@ of those sections to manage the look and feel of the site. */
     height: 100%;
     padding-top: 150px;
     text-align: center;
-    background: #fff;
+    /*background: #fff;*/
 }
 
 .about-section {
     height: 100%;
     padding-top: 150px;
     text-align: center;
-    background: #eee;
+    /*background: #eee;*/
 }
 
 .login-section {
     height: 100%;
     padding-top: 150px;
     /*text-align: center;*/
-    background: #fff;
+    /*background: #fff;*/
 }
 
 .contact-section {
     height: 100%;
     padding-top: 150px;
     text-align: center;
-    background: #eee;
+    /*background: #eee;*/
 }
 
 .cp-navigation {
-    background-color: lightblue;
+    /*background-color: lightblue;*/
+    background-image: url('../images/stardust.png');
 }
 
 .row.login {
@@ -65,4 +68,8 @@ of those sections to manage the look and feel of the site. */
 
 div#accordion {
     text-align: left;
+}
+
+div.navbar {
+    color: #bababa !important;
 }
